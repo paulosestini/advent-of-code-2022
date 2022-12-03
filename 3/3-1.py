@@ -27,7 +27,6 @@ def get_priority_from_bitmap(bitmap: int) -> int:
     return priority
 
 
-rucksacks = None
 with open('./3/input.txt') as file:
     rucksacks = map(lambda line: line.strip(), file.readlines())
     rucksacks_bitmap_intersections = map(
