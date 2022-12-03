@@ -24,7 +24,6 @@ def get_priority_from_bitmap(bitmap: int) -> int:
     return priority
 
 
-rucksacks = None
 with open('./3/input.txt') as file:
     rucksacks = list(map(lambda line: line.strip(), file.readlines()))
     grouped_rucksacks = map(lambda i: rucksacks[i: i+3], range(0, len(rucksacks), 3))
