@@ -11,7 +11,7 @@ def build_stacks(stack_lines: 'list[str]') -> 'list[list[str]]':
     return stacks
 
 
-def move_items(stacks: 'list[list[int]]', movement_line: str):
+def move_items(stacks: 'list[list[str]]', movement_line: str):
     n_items, first_stack_number, second_stack_number = map(
         int, re.findall(r'\d+', movement_line))
 
