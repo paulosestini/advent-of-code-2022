@@ -5,7 +5,7 @@ class Dir:
         self.subdirs = []
 
 
-def find_dir_size(dir: Dir, terminal_lines: 'list[str]', line_position: int) -> int:
+def calculate_dir_size(dir: Dir, terminal_lines: 'list[str]', line_position: int) -> int:
     while line_position < len(terminal_lines):
         line = terminal_lines[line_position]
         tokens = line.split(' ')
@@ -24,7 +24,7 @@ def find_dir_size(dir: Dir, terminal_lines: 'list[str]', line_position: int) -> 
             subdir_to_change_to = list(filter(lambda subdir: subdir.name ==
                                               dirname, dir.subdirs))[0]
 
-            position_where_subcall_stopped = find_dir_size(
+            position_where_subcall_stopped = calculate_dir_size(
                 subdir_to_change_to, terminal_lines, line_position+1)
             line_position = position_where_subcall_stopped
 
@@ -56,7 +56,7 @@ def find_dirs_sizes_gte_N(dir: Dir, size_list: 'list[int]', N: int):
 with open('./7/input.txt') as file:
     terminal_lines = file.read().strip().split('\n')
     root = Dir('/')
-    find_dir_size(root, terminal_lines, 1)
+    calculate_dir_size(root, terminal_lines, 1)
     
     disk_total_space = 70000000
     used_space = root.size
